@@ -27,7 +27,7 @@ Using composer:
 
 4. Configure VHost:
 
-    `
+    ``
     <VirtualHost *:80>
         DocumentRoot "/home/YourName/Workspace/Project/web"
         ServerName yourSuperbFbApp.local
@@ -36,7 +36,7 @@ Using composer:
             AllowOverride All
         </directory>
     </VirtualHost>
-    `
+    ``
 
 5. Reload Apache config
 

@@ -25,9 +25,9 @@ $app
 $app['facebook.class_path'] = __DIR__ .'/../vendor/facebook/php-sdk/src/';
 
 $app->register(new Faceboo\Provider\FacebookServiceProvider(), array(
-		'facebook.app_id' => '113291218705258',
-		'facebook.secret' => '9aceca728c59acaf00ab66b146339c81',
-		'facebook.namespace' => 'http://silexfbapp.local/'
+		'facebook.app_id' => 'FB_APP_ID',
+		'facebook.secret' => 'FB_APP_SECRET',
+		'facebook.namespace' => 'FB_APPNAME'
 ));
 
 $pages = array('/' => 'homepage', 'error'=>'error');

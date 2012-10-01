@@ -22,32 +22,39 @@ $app
 // 		->register(new Silex\Provider\TranslationServiceProvider(),
 // 				array('locale_fallback' => 'en',));
 
-$app['facebook.class_path'] = __DIR__ .'/../vendor/facebook/php-sdk/src/';
+$app['facebook.class_path'] = __DIR__ . '/../vendor/facebook/php-sdk/src/';
 
-$app->register(new Faceboo\Provider\FacebookServiceProvider(), array(
-		'facebook.app_id' => '113291218705258',
-		'facebook.secret' => '9aceca728c59acaf00ab66b146339c81',
-		'facebook.namespace' => 'http://silexfbapp.local/'
-));
+$app
+		->register(new Faceboo\Provider\FacebookServiceProvider(),
+				array('facebook.app_id' => '113291218705258',
+						'facebook.secret' => '9aceca728c59acaf00ab66b146339c81',
+						'facebook.namespace' => 'max-test'));
 
-$pages = array('/' => 'homepage', 'error'=>'error');
+$app
+		->register(new Silex\Provider\DoctrineServiceProvider(),
+				array(
+						'db.options' => array('driver' => 'pdo_sqlite',
+								'path' => __DIR__ . '/app.db',),));
 
-$app->before(function(Request $request) use ($app) {
-	if ($response = $app['facebook']->protect()) return $response;
-});
+$pages = array('/' => 'homepage', '/error' => 'error');
+
+$app
+		->before(
+				function (Request $request) use ($app) {
+					if ($response = $app['facebook']->protect())
+						return $response;
+				});
 
 foreach ($pages as $route => $view) {
 	$app
-			->get($route,
+			->post($route,
 					function () use ($app, $view) {
-						if ($response = $app['facebook']->auth())
-						{
+						if ($response = $app['facebook']->auth()) {
 							return $app['twig']->render($view . '.html.twig');
-						}
-						else
-						{
+						} else {
 							return $app['twig']->render('error.html.twig');
 						}
+						return $app['twig']->render($view . '.html.twig');
 					})->bind($view);
 }
 

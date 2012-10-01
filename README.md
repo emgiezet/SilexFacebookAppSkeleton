@@ -14,20 +14,21 @@ Installation
 Using composer:
 
 1. Checkout the repository
-2. Run the composer:
+  
+    git clone ... ./
 
-``
+2. Run the composer:
+  
     php composer.phar update
-``
 
 3. Configure your FacebookSDK params:
 
-``
-``
+    ``#web/index.php
+        
+    ``
 
 4. Configure VHost:
-
-    ``
+    
     <VirtualHost *:80>
         DocumentRoot "/home/YourName/Workspace/Project/web"
         ServerName yourSuperbFbApp.local
@@ -36,13 +37,12 @@ Using composer:
             AllowOverride All
         </directory>
     </VirtualHost>
-    ``
 
 5. Reload Apache config
 
-``
-    sudo service apache2 restart
-``
+    ``
+        sudo service apache2 restart
+    ``
 
 
 
@@ -54,7 +54,11 @@ Requirements
 
 Documentation
 ------------------
-
+* [DoctrineServiceProvider]( http://silex.sensiolabs.org/doc/providers/doctrine.html)
+* [MonologServiceProvider](http://silex.sensiolabs.org/doc/providers/monolog.html)
+* [TwigServiceProvider](http://silex.sensiolabs.org/doc/providers/twig.html)
+* [FormServiceProvider](http://silex.sensiolabs.org/doc/providers/form.html)
+* [DoctrineServiceProvider](http://silex.sensiolabs.org/doc/providers/doctrine.html)
 
 Licence
 -----------------
@@ -63,5 +67,5 @@ This code is released under GPL licence. Free for use.
 
 Contributors
 -----------------
-@emgiezet
-
+* @emgiezet
+[![endorse](http://api.coderwall.com/emgiezet/endorsecount.png)](http://coderwall.com/emgiezet)

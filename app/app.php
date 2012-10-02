@@ -26,11 +26,6 @@ $app
                 array('facebook.app_id' => 'FB_APP_ID',
                         'facebook.secret' => 'FB_APP_SECRET',
                         'facebook.namespace' => 'FB_APPNAME'));
-$app
-        ->register(new Silex\Provider\DoctrineServiceProvider(),
-                array(
-                        'db.options' => array('driver' => 'pdo_sqlite',
-                                'path' => __DIR__ . '/app.db',),));
 
 $pages = array('/' => 'homepage', '/error' => 'error');
 
@@ -54,7 +49,5 @@ foreach ($pages as $route => $view) {
                         return $app['twig']->render($view . '.html.twig');
                     })->bind($view);
 }
-
-$app->run();
 
 return $app;

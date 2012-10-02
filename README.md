@@ -1,3 +1,5 @@
+
+
 Idea
 ----------------
 This repo will be good start to make any kind of facebook app based on Silex, Faceboo, Twig, Doctrine.
@@ -11,6 +13,9 @@ But scalability is still available for developers.
 
 Installation
 -----------------
+
+[![Build Status](https://secure.travis-ci.org/emgiezet/SilexFacebookAppSkeleton.png)](http://travis-ci.org/emgiezet/SilexFacebookAppSkeleton)
+
 Using composer:
 
 1. Checkout the repository
